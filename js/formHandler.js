@@ -16,6 +16,7 @@ window.onload = function() {
     document.getElementById('outputDob').textContent = defaultData.dob;
     document.getElementById('outputGender').textContent = defaultData.gender;
     document.getElementById('outputMessage').textContent = defaultData.message;
+    initSlideshow();
 }
 
 // Fungsi untuk menampilkan popup saat halaman dimuat
@@ -76,3 +77,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Fungsi untuk mengatur slideshow otomatis
+function initSlideshow() {
+    const slideshow = document.getElementById('slideshow');
+    const totalSlides = slideshow.children.length;
+    let currentSlide = 0;
+
+    // Fungsi untuk mengganti slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slideshow.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Jalankan slideshow setiap 3 detik
+    setInterval(nextSlide, 3000);
+}
