@@ -155,6 +155,14 @@
                         <input class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="name" type="text" required/>  
                     </div>  
                     <div>  
+                        <label class="block text-gray-700 font-semibold mb-1" for="email">Email</label>  
+                        <input class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" type="email" required/>  
+                    </div>  
+                    <div>  
+                        <label class="block text-gray-700 font-semibold mb-1" for="phone">Nomor Telepon</label>  
+                        <input class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="phone" type="tel" pattern="[0-9]+" required/>  
+                    </div>  
+                    <div>  
                         <label class="block text-gray-700 font-semibold mb-1" for="dob">Tanggal Lahir</label>  
                         <input class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="dob" type="date" required/>  
                     </div>  
@@ -181,6 +189,8 @@
                     <h3 class="text-2xl font-semibold mb-4 text-gray-800">Current Information</h3>  
                     <p class="text-lg"><strong>Current time:</strong> <span id="currentTime" class="font-medium text-red-700"></span></p>  
                     <p class="text-lg"><strong>Nama:</strong> <span id="outputName" class="font-medium text-gray-700"></span></p>  
+                    <p class="text-lg"><strong>Email:</strong> <span id="outputEmail" class="font-medium text-gray-700"></span></p>  
+                    <p class="text-lg"><strong>Nomor Telepon:</strong> <span id="outputPhone" class="font-medium text-gray-700"></span></p>  
                     <p class="text-lg"><strong>Tanggal Lahir:</strong> <span id="outputDob" class="font-medium text-gray-700"></span></p>  
                     <p class="text-lg"><strong>Jenis Kelamin:</strong> <span id="outputGender" class="font-medium text-gray-700"></span></p>  
                     <p class="text-lg"><strong>Pesan:</strong> <span id="outputMessage" class="font-medium text-gray-700"></span></p>  

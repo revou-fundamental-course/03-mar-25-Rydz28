@@ -1,5 +1,7 @@
 const defaultData = {
     name: "Ryan Dzakwan Adriansyah",
+    email: "ryandzakwan282004@gmail.com",
+    phone: "081296853753",
     dob: "2004-09-28",
     gender: "Laki-Laki",
     message: "Halo, saya Ryan Dzakwan Adriansyah, bisa dipanggil Ryan, salam kenal."
@@ -9,6 +11,8 @@ window.onload = function() {
     const time = new Date().toString();
     document.getElementById('currentTime').textContent = time;
     document.getElementById('outputName').textContent = defaultData.name;
+    document.getElementById('outputEmail').textContent = defaultData.email;
+    document.getElementById('outputPhone').textContent = defaultData.phone;
     document.getElementById('outputDob').textContent = defaultData.dob;
     document.getElementById('outputGender').textContent = defaultData.gender;
     document.getElementById('outputMessage').textContent = defaultData.message;
@@ -19,12 +23,16 @@ function handleSubmit(event) {
     
     const time = new Date().toString();
     const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
     const dob = document.getElementById('dob').value;
     const gender = document.querySelector('input[name="gender"]:checked').value;
     const message = document.getElementById('message').value;
 
     document.getElementById('currentTime').textContent = time;
     document.getElementById('outputName').textContent = name;
+    document.getElementById('outputEmail').textContent = email;
+    document.getElementById('outputPhone').textContent = phone;
     document.getElementById('outputDob').textContent = dob;
     document.getElementById('outputGender').textContent = gender;
     document.getElementById('outputMessage').textContent = message;
