@@ -18,6 +18,22 @@ window.onload = function() {
     document.getElementById('outputMessage').textContent = defaultData.message;
 }
 
+// Fungsi untuk menampilkan popup saat halaman dimuat
+function showPopup() {
+    document.getElementById('namePopup').classList.remove('hidden');
+}
+
+// Fungsi untuk menyimpan nama dari popup
+function handleNameSubmit(event) {
+    event.preventDefault();
+    const nameInput = document.getElementById('popupName').value;
+    document.getElementById('userName').textContent = nameInput;
+    document.getElementById('namePopup').classList.add('hidden');
+}
+
+// Menambahkan event listener untuk memunculkan popup saat halaman dimuat
+window.addEventListener('load', showPopup);
+
 function handleSubmit(event) {
     event.preventDefault();
     
