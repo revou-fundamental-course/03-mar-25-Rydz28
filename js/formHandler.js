@@ -30,6 +30,11 @@ function handleSubmit(event) {
     document.getElementById('outputMessage').textContent = message;
 }
 
+function toggleMobileMenu() {  
+    const menu = document.getElementById('mobileMenu');  
+    menu.classList.toggle('hidden');  
+} 
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

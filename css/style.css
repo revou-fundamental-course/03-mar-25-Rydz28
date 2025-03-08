@@ -4,3 +4,64 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+/* Desktop (default) */
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* Tablet */
+@media screen and (max-width: 1023px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hobi-container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .form-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .achievement-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+    header nav {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+    
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hobi-container > div {
+        width: 100%;
+    }
+    
+    .form-section {
+        padding: 1rem;
+    }
+    
+    .profile-container {
+        padding: 1rem;
+    }
+}
