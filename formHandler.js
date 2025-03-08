@@ -30,7 +30,6 @@ function handleSubmit(event) {
     document.getElementById('outputMessage').textContent = message;
 }
 
-// Add smooth scroll handler
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
