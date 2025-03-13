@@ -1,244 +1,279 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="utf-8"/>  
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>  
-    <title>Website - Portofolio</title>  
-    <script src="https://cdn.tailwindcss.com"></script>  
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>  
-    <link href="css/style.css" rel="stylesheet"/> 
-    <script src="js/formHandler.js"></script>  
-    <link rel="icon" href="logo R.png" type="image/png">
-</head>  
-<body class="bg-white text-black">  
-
-    <!-- Popup Form Nama -->
-    <div id="namePopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-8 rounded-lg shadow-xl">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">Masukkan Nama Anda</h2>
-            <form onsubmit="handleNameSubmit(event)" class="space-y-4">
-                <div>
-                    <label for="popupName" class="block text-gray-700 font-semibold mb-1">Nama:</label>
-                    <input type="text" id="popupName" required
-                        class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <button type="submit" 
-                    class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200">
-                    Simpan
-                </button>
-            </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Modern</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/formHandler.js"></script>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="aset/saveitfrom.com-RevoU-High (800x800).jpg" alt="Logo R" class="logo-img">
         </div>
-    </div>
+        <nav>
+            <a href="#home" class="nav-link">🏠 Beranda</a>
+            <a href="#profile" class="nav-link">👥 Profil Saya</a>
+            <a href="#hobi" class="nav-link">🎯 Hobbies</a>
+            <a href="#prestasi" class="nav-link">🏆 Prestasi</a>
+            <a href="#pesan" class="nav-link">✉️ Message Us</a>
+        </nav>
+    </header>
 
-    <!-- Header dengan menu seluler --> 
-    <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-white fixed w-full top-0 z-50 backdrop-blur-sm bg-opacity-90">  
-        <div class="max-w-7xl mx-auto px-4">  
-            <div class="flex items-center justify-between h-20">  
-                <div class="flex items-center space-x-4">  
-                    <img alt="Logo" class="w-12 h-12 rounded-full border-2 border-blue-400 hover:border-blue-300 transition-all duration-300 transform hover:scale-110"   
-                        src="https://s3-ap-southeast-1.amazonaws.com/revou-blog/2019/12/Logo-RevoU-5.png" width="50" height="50"/>  
-                    <!-- Mobile menu button -->  
-                    <button title="Mobile" class="md:hidden text-white" onclick="toggleMobileMenu()">  
-                        <i class="fas fa-bars text-2xl"></i>  
-                    </button>  
-                </div>  
-                <!-- Tampilan untuk Desktop navigation -->  
-                <nav class="hidden md:flex space-x-8">  
-                    <a class="relative px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-400 after:left-0 after:bottom-0 hover:after:w-full after:transition-all" href="#home">Home</a>  
-                    <a class="relative px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-400 after:left-0 after:bottom-0 hover:after:w-full after:transition-all" href="#hobi">Hobi</a>  
-                    <a class="relative px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-400 after:left-0 after:bottom-0 hover:after:w-full after:transition-all" href="#Pencapaian">Pencapaian</a> 
-                    <a class="relative px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-400 after:left-0 after:bottom-0 hover:after:w-full after:transition-all" href="#profile">Our Profile</a> 
-                    <a class="relative px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-400 after:left-0 after:bottom-0 hover:after:w-full after:transition-all" href="#pesan">Message Us</a>  
-                </nav>  
-            </div>  
-            <!-- Tampilan untuk Mobile navigation -->  
-            <div id="mobileMenu" class="hidden md:hidden py-4">  
-                <div class="flex flex-col space-y-4">  
-                    <a class="text-gray-300 hover:text-blue-400" href="#home">Home</a>  
-                    <a class="text-gray-300 hover:text-blue-400" href="#hobi">Hobi</a>  
-                    <a class="text-gray-300 hover:text-blue-400" href="#Pencapaian">Pencapaian</a>  
-                    <a class="text-gray-300 hover:text-blue-400" href="#profile">Our Profile</a>  
-                    <a class="text-gray-300 hover:text-blue-400" href="#pesan">Message Us</a>  
-                </div>  
-            </div>  
-        </div>  
-    </header>  
-    <div class="h-20"></div> <!-- Untuk menambahkan jarak agar tidak menutupi teks atau elemen lain -->  
-
-    <!-- Main Content -->  
-    <main class="p-4 md:p-8">  
-        <section id="home" class="text-center mb-16 pt-20">  
-            <h1 class="text-3xl md:text-5xl font-bold bg-gradient-to-r from-yellow-400 to-gray-900 bg-clip-text text-transparent animate-fade-in-down">Hi <span id="userName">Ryan</span>, Welcome To Website</h1>  
-            <p class="text-lg text-gray-600 leading-relaxed mt-4 max-w-2xl mx-auto animate-[fadeIn_1s_ease-in] hover:text-blue-600 transition-colors duration-300">  
-                Selamat datang di website portofolio saya! Website ini merupakan tugas dari pembelajaran Course Software Engineering RevoU.  
-            </p>  
-            <div class="mt-8 relative overflow-hidden max-w-4xl mx-auto h-[400px]">
-                <div id="slideshow" class="flex transition-transform duration-1000 ease-in-out h-full">
-                    <img alt="slideshow1" class="w-full h-full flex-shrink-0 object-contain" src="https://assets-global.website-files.com/61af164800e38c4f53c60b4e/64094d8d2cd6f76495b733ea_fc%20logo.png"/>
-                    <img alt="slideshow3" class="w-full h-full flex-shrink-0 object-contain" src="aset/portofolio-ryandz.png"/>
-                    <img alt="slideshow2" class="w-full h-full flex-shrink-0 object-contain" src="aset/Web Gunda.png"/>
-                    <img alt="slideshow3" class="w-full h-full flex-shrink-0 object-contain" src="aset/Joki.png"/>
-                    <img alt="slideshow3" class="w-full h-full flex-shrink-0 object-contain" src="aset/Website Portofolio Software Engineering RevoU.png"/>
+    <main style="margin-top: 100px;">
+        <section id="home" class="welcome-section">
+            <h1 class="welcome-text">
+                Hi <span class="highlight">Guest</span>, Welcome To Website
+            </h1>
+            <p class="welcome-description animate__animated animate__fadeInUp">
+                ✨ Selamat datang di website portofolio saya! Website ini merupakan tugas dari pembelajaran Course Software Engineering RevoU. ✨
+            </p>
+        </section>
+        <section class="slideshow-container">
+            <div class="slides">
+                <div class="slide fade">
+                    <div class="slide-content">
+                        <img src="aset/Web Gunda.png" alt="Gambar 1">
+                        <div class="slide-text">
+                            <h2>Website Gunadarma</h2>
+                            <p>Website ini dibangun hasil dari tugas mahasiswa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <div class="slide-content">
+                        <img src="aset/portofolio-ryandz.png" alt="Gambar 2">
+                        <div class="slide-text">
+                            <h2>Portofolio</h2>
+                            <p>ini adalah website portofolio Ryan Dzakwan Adriansyah</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <div class="slide-content">
+                        <img src="aset/Joki.png" alt="Gambar 3">
+                        <div class="slide-text">
+                            <h2>Website Joki Universitas</h2>
+                            <p>Ini website Joki untuk Mahasiswa Gunadarma</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="flex justify-center gap-6 mt-8">  
-                <a href="http://portofolio-ryandz.my.id/" target="_blank" class="px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-gray-500/50" rel="noopener noreferrer">  
-                    Get Started  
+            
+            <div class="slide-indicators">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <section id="profile" class="profile-section">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="aset/logo R.png" alt="Profile Picture" class="profile-img">
+                    </div>
+                    <h2 class="profile-title">Profile Saya</h2>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <div class="info-group">
+                            <div class="info-item">
+                                <span class="info-label">Nama</span>
+                                <span class="info-value">Ryan Dzakwan Adriansyah</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Usia</span>
+                                <span class="info-value">20</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Pekerjaan</span>
+                                <span class="info-value">Mahasiswa</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Universitas</span>
+                                <span class="info-value">Gunadarma</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Lokasi</span>
+                                <span class="info-value">Bekasi/Depok, Indonesia</span>
+                            </div>
+                        </div>
+                        <div class="skills-group">
+                            <h3>Keahlian</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Web Development</span>
+                                <span class="skill-tag">UI/UX Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-about">
+                        <h3>About Me</h3>
+                        <p>Saya adalah seorang pengembang web yang antusias, bersemangat untuk belajar dan mengembangkan keterampilan dalam teknologi digital. Meskipun masih baru, saya memiliki ketertarikan yang besar untuk menciptakan solusi kreatif melalui desain yang sederhana namun efektif.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobi" class="hobbies-section">
+            <h2 class="hobbies-title">My Hobbies</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-icon">💻</div>
+                    <div class="hobby-name">Coding</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎮</div>
+                    <div class="hobby-name">Gaming</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎵</div>
+                    <div class="hobby-name">Music</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎨</div>
+                    <div class="hobby-name">Anime</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prestasi" class="achievements-section">
+            <h2 class="achievements-title">Prestasi Kami</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>UI/UX Research and Design - BOOTCAMP</h3>
+                        <p>Program intensif UI/UX Research and Design Fullstack dari Myskill</p>
+                        <span class="achievement-date">Fullstack Bootcamp</span>
+                    </div>
+                    <div class="achievement-hover">
+                        <p>Program intensif UI/UX Research and Design yang komprehensif, dirancang untuk menghasilkan desainer profesional dengan kemampuan end-to-end dalam merancang pengalaman digital.</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>WordPress Development</h3>
+                        <p>Sertifikat mengenai WordPress Developmen</p>
+                        <span class="achievement-date">Web Development</span>
+                    </div>
+                    <div class="achievement-hover">
+                        <p>Sertifikat mengenai WordPress Development menunjukkan pemahaman komprehensif tentang pembuatan dan pengelolaan situs web menggunakan platform WordPress.</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Frontend Development</h3>
+                        <p>Sertifikat mengenai Frontend Development</p>
+                        <span class="achievement-date">HTML, JavaScript & CSS</span>
+                    </div>
+                    <div class="achievement-hover">
+                        <p>Sertifikat mengenai Frontend Development menunjukkan pemahaman menyeluruh tentang struktur dan elemen dasar HTML, JavaScript dan CSS.</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>WEBSITE DEVELOPMENT WITH WORDPRESS - BOOTCAMP</h3>
+                        <p>Bootcamp Pengembangan Website dengan WordPress dari Myskill</p>
+                        <span class="achievement-date">Website Development WordPress</span>
+                    </div>
+                    <div class="achievement-hover">
+                        <p>Bootcamp Pengembangan Website dengan WordPress dari Myskill yang intensif dan komprehensif, dirancang untuk mengubah peserta menjadi pengembang website profesional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pesan" class="message-section">
+            <h2 class="message-title">Message Us</h2>
+            <div class="message-container">
+                <form class="message-form">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Nama</label>
+                        <input class="form-input" id="name" type="text" placeholder="Masukkan nama Anda"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-input" id="email" type="email" placeholder="Masukkan email Anda"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">No. Telepon</label>
+                        <input class="form-input" id="phone" type="tel" placeholder="Masukkan nomor telepon Anda"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="dob">Tanggal Lahir</label>
+                        <input class="form-input" id="dob" type="date"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Jenis Kelamin</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input class="radio-input" name="gender" type="radio" value="Laki-Laki"/>
+                                Laki-Laki
+                            </label>
+                            <label class="radio-label">
+                                <input class="radio-input" name="gender" type="radio" value="Perempuan"/>
+                                Perempuan
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Pesan</label>
+                        <textarea class="form-input" id="message" rows="4" placeholder="Tulis pesan Anda di sini..."></textarea>
+                    </div>
+                    <button class="submit-btn" type="submit">
+                        Kirim Pesan
+                    </button>
+                </form>
+                <div class="message-display">
+                    <div class="message-info">
+                        <p>Current time: <span id="current-time"></span></p>
+                    </div>
+                    <div class="message-info">
+                    </div>
+                    <div class="message-info">
+                    </div>
+                    <div class="message-info">
+                    </div>
+                    <div class="message-info">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="js/formHandler.js"></script>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">RevoU</div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/ryan-dzakwan-970992299/" target="_blank" class="social-link linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
                 </a>
-                <a href="https://portofolio-ryandz.my.id/lihat_portofolio.php" class="px-8 py-3 border-2 border-gray-900 text-gray-900 rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">  
-                    Learn More  
-                </a>  
-            </div>  
-        </section>  
-
-        <div class="h-20"></div> <!-- Untuk menambahkan jarak agar tidak menutupi teks atau elemen lain -->  
-
-        <!-- Hobi -->  
-        <section id="hobi" class="text-center mb-16">  
-            <h2 class="text-3xl font-bold mb-8 text-gray-800">Hobi</h2>  
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">  
-                <div class="text-center transform hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-2xl p-6 rounded-lg bg-white shadow-md">  
-                    <img alt="Coding" class="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 hover:border-blue-500 transition-colors duration-300" height="100" src="https://wallpapers.com/images/hd/coding-background-9izlympnd0ovmpli.jpg" width="100"/>  
-                    <p class="mt-4 text-lg font-semibold hover:text-blue-500 transition-colors duration-300">Coding</p>  
-                </div>  
-                <div class="text-center transform hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-2xl p-6 rounded-lg bg-white shadow-md">  
-                    <img alt="Game" class="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 hover:border-red-500 transition-colors duration-300" height="100" src="https://assets-prd.ignimgs.com/2023/12/08/mechabreak-1701997906808.jpg" width="100"/>  
-                    <p class="mt-4 text-lg font-semibold hover:text-red-500 transition-colors duration-300">Game</p>  
-                </div>  
-                <div class="text-center transform hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-2xl p-6 rounded-lg bg-white shadow-md">  
-                    <img alt="Anime" class="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 hover:border-purple-500 transition-colors duration-300" height="100" src="https://i.pinimg.com/originals/84/0d/88/840d88bb20888143c15975185b70907b.jpg" width="100"/>  
-                    <p class="mt-4 text-lg font-semibold hover:text-purple-500 transition-colors duration-300">Anime</p>  
-                </div>  
-                <div class="text-center transform hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-2xl p-6 rounded-lg bg-white shadow-md">  
-                    <img alt="Musik" class="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 hover:border-green-500 transition-colors duration-300" height="100" src="https://img.freepik.com/premium-photo/lofi-girl-listen-music-anime-style_967564-88.jpg?w=740" width="100"/>  
-                    <p class="mt-4 text-lg font-semibold hover:text-green-500 transition-colors duration-300">Musik</p>  
-                </div>  
-            </div>  
-        </section>  
-
-        <!-- Pencapaian -->  
-        <section id="Pencapaian" class="mb-16 px-4">  
-            <h2 class="text-3xl font-bold mb-8 text-center text-blue-800">Pencapaian</h2>  
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">  
-                <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-2xl">  
-                    <div class="text-5xl text-blue-600 mb-4">  
-                        <i class="fas fa-trophy"></i>  
-                    </div>  
-                    <h3 class="text-xl font-semibold mb-2 hover:text-blue-700 transition-colors duration-200">UI/UX RESEARCH AND DESIGN FULLSTACK INTENSIVE BOOTCAMP</h3>  
-                    <p class="text-gray-700 text-sm">Program intensif UI/UX Research and Design Fullstack dari Myskill yang komprehensif, dirancang untuk menghasilkan desainer profesional dengan kemampuan end-to-end dalam merancang pengalaman digital.</p>  
-                </div>  
-                <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-2xl">  
-                    <div class="text-5xl text-green-600 mb-4">  
-                        <i class="fas fa-certificate"></i>  
-                    </div>  
-                    <h3 class="text-xl font-semibold mb-2 hover:text-green-700 transition-colors duration-200">Wordpress Development</h3>  
-                    <p class="text-gray-700 text-sm">Sertifikat mengenai WordPress Development menunjukkan pemahaman komprehensif tentang pembuatan dan pengelolaan situs web menggunakan platform WordPress. Peserta akan belajar untuk membangun situs yang fungsional dan menarik, serta mengoptimalkan pengalaman pengguna sesuai dengan kebutuhan modern.</p>  
-                </div>  
-                <div class="bg-white rounded-lg shadow-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-2xl">  
-                    <div class="text-5xl text-purple-600 mb-4">  
-                        <i class="fas fa-star"></i>  
-                    </div>  
-                    <h3 class="text-xl font-semibold mb-2 hover:text-purple-700 transition-colors duration-200">FRONTEND - HTML</h3>  
-                    <p class="text-gray-700 text-sm">Sertifikat mengenai Frontend - HTML menunjukkan pemahaman menyeluruh tentang struktur dan elemen dasar HTML, termasuk gaya dan warna, yang semuanya penting untuk menciptakan tampilan web yang interaktif dan menarik.</p>  
-                </div>  
-            </div>  
-        </section>  
-
-        <!-- Our Profile -->  
-        <section id="profile" class="mb-16">  
-            <h2 class="text-4xl font-bold mb-8 text-center text-gray-900">Our Profile</h2>  
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">  
-                <div class="flex items-center space-x-4 mb-6">  
-                    <img src="https://portofolio-ryandz.my.id/195132af8f260.png" alt="Profile Picture" class="w-24 h-24 rounded-full border-2 border-blue-500 shadow-md"/>  
-                    <div>  
-                        <h3 class="text-xl font-semibold text-gray-800">Ryan Dzakwan Adriansyah</h3>  
-                        <p class="text-gray-500">Web Developer & UI/UX Desainer</p>  
-                    </div>  
-                </div>  
-                <p class="text-gray-700 mb-4"><strong>About:</strong> Saya adalah seorang pengembang web yang berdedikasi dengan kemampuan di bidang UI/UX dan pemrograman. Saya senang mempelajari teknologi baru dan berkolaborasi dalam proyek-proyek inovatif.</p>  
-                <p class="text-gray-700 mb-4"><strong>Visi:</strong> Menciptakan aplikasi web yang tidak hanya menarik tetapi juga memberikan pengalaman pengguna yang luar biasa.</p>  
-                <p class="text-gray-700 mb-4"><strong>Misi:</strong> Berkomitmen untuk terus belajar dan meningkatkan keterampilan agar dapat memberikan solusi digital yang lebih baik bagi klien.</p>  
-                <div class="mt-6">  
-                    <h4 class="text-lg font-semibold mb-2">Keterampilan</h4>  
-                    <div class="flex flex-wrap gap-2">  
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">UI/UX Design</span>  
-                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">JavaScript</span>  
-                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">Python</span>  
-                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">HTML & CSS</span>  
-                    </div>  
-                </div>  
-            </div>  
-        </section>  
-
-        <!-- Form Message Us -->  
-        <section id="pesan" class="mb-16">  
-            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Message Us</h2>  
-            <div class="flex flex-col md:flex-row justify-center md:space-x-8 space-y-8 md:space-y-0">  
-                <form class="space-y-6 rounded-lg shadow-xl p-8 bg-white transition-transform duration-300 transform hover:shadow-2xl" id="personalForm" onsubmit="handleSubmit(event)">  
-                    <div>  
-                        <label class="block text-gray-700 font-semibold mb-1" for="name">Nama</label>  
-                        <input class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="name" type="text" required/>  
-                    </div>  
-                    <div>  
-                        <label class="block text-gray-700 font-semibold mb-1" for="email">Email</label>  
-                        <input class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" type="email" required/>  
-                    </div>  
-                    <div>  
-                        <label class="block text-gray-700 font-semibold mb-1" for="phone">Nomor Telepon</label>  
-                        <input class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="phone" type="tel" pattern="[0-9]+" required/>  
-                    </div>  
-                    <div>  
-                        <label class="block text-gray-700 font-semibold mb-1" for="dob">Tanggal Lahir</label>  
-                        <input class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="dob" type="date" required/>  
-                    </div>  
-                    <div>  
-                        <label class="block text-gray-700 font-semibold mb-1">Jenis Kelamin</label>  
-                        <div class="flex items-center space-x-4">  
-                            <label class="flex items-center">  
-                                <input class="mr-2" name="gender" type="radio" value="Laki-Laki" required/>  
-                                Laki-Laki  
-                            </label>  
-                            <label class="flex items-center">  
-                                <input class="mr-2" name="gender" type="radio" value="Perempuan"/>  
-                                Perempuan  
-                            </label>  
-                        </div>  
-                    </div>  
-                    <div>  
-                        <label class="block text-gray-700 font-semibold mb-1" for="message">Pesan</label>  
-                        <textarea class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="message" required></textarea>  
-                    </div>  
-                    <button class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200" type="submit">Submit</button>  
-                </form>  
-                <div class="border border-gray-300 rounded-lg shadow-lg p-6 bg-white transition-transform duration-300 hover:scale-105">  
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Current Information</h3>  
-                    <p class="text-lg"><strong>Current time:</strong> <span id="currentTime" class="font-medium text-red-700"></span></p>  
-                    <p class="text-lg"><strong>Nama:</strong> <span id="outputName" class="font-medium text-gray-700"></span></p>  
-                    <p class="text-lg"><strong>Email:</strong> <span id="outputEmail" class="font-medium text-gray-700"></span></p>  
-                    <p class="text-lg"><strong>Nomor Telepon:</strong> <span id="outputPhone" class="font-medium text-gray-700"></span></p>  
-                    <p class="text-lg"><strong>Tanggal Lahir:</strong> <span id="outputDob" class="font-medium text-gray-700"></span></p>  
-                    <p class="text-lg"><strong>Jenis Kelamin:</strong> <span id="outputGender" class="font-medium text-gray-700"></span></p>  
-                    <p class="text-lg"><strong>Pesan:</strong> <span id="outputMessage" class="font-medium text-gray-700"></span></p>  
-                </div>  
-            </div>  
-        </section>  
-    </main>  
-
-    <!-- Footer -->  
-    <footer class="bg-gray-800 text-center p-6 border-t border-gray-700">  
-        <p class="text-white font-semibold mb-2">Created by RevoU</p>  
-        <p class="text-gray-400">Ryan Dzakwan Adriansyah</p>  
-        <div class="mt-4 flex justify-center space-x-4">  
-            <a href="https://www.instagram.com/rya_dz28/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300" rel="noopener noreferrer" title="Instagram">  
-                <i class="fab fa-instagram fa-lg"></i>  
-            </a>  
-            <a href="https://github.com/Rydz28" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300" rel="noopener noreferrer" title="GitHub">  
-                <i class="fab fa-github fa-lg"></i>  
-            </a>  
-            <a href="https://www.linkedin.com/in/ryan-dzakwan-970992299/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300" rel="noopener noreferrer" title="LinkedIn">  
-                <i class="fab fa-linkedin-in fa-lg"></i>  
-            </a>  
-        </div>  
-    </footer>   
-</body>  
+                <a href="https://www.instagram.com/rya_dz28/" target="_blank" class="social-link instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Rydz28" target="_blank" class="social-link github">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+            <p class="footer-text">Dibuat dengan <span class="footer-heart">♥</span> oleh Ryan Dzakwan Adriansyah - RevoU</p>
+        </div>
+    </footer>
+</body>
 </html>
