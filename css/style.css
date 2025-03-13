@@ -1017,11 +1017,13 @@ nav a.active::before {
 }
 
 .footer {
-    background: linear-gradient(135deg, #ffd700 0%, #f6d365 100%);
-    padding: 4rem 2rem 3rem;
+    background: linear-gradient(165deg, #ffd700 0%, #f6d365 50%, #ffa500 100%);
+    padding: 6rem 2rem 4rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 -10px 30px rgba(246, 211, 101, 0.2);
+    box-shadow: 0 -10px 30px rgba(246, 211, 101, 0.3);
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    margin-top: 4rem;
 }
 
 .footer-content {
@@ -1033,72 +1035,101 @@ nav a.active::before {
 }
 
 .footer-logo {
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: 3.5rem;
+    font-weight: 900;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1),
+                 -2px -2px 4px rgba(255,255,255,0.3);
+    margin-bottom: 2.5rem;
     display: inline-block;
     position: relative;
+    letter-spacing: 2px;
 }
 
 .footer-logo::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
+    width: 80px;
     height: 4px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .footer-social {
-    margin: 2.5rem 0;
+    margin: 3rem 0;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .social-link {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-decoration: none;
     border: 2px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .social-link:hover {
-    transform: translateY(-8px) rotate(8deg);
+    transform: translateY(-8px) scale(1.1);
     background: #ffffff;
-    color: #ffd700;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    color: #f6d365;
+    box-shadow: 0 15px 25px -10px rgba(0,0,0,0.2);
+    border-color: transparent;
+}
+
+.social-link:hover::before {
+    opacity: 1;
 }
 
 .footer-text {
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 500;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
 }
 
 .footer-heart {
     color: #ff4d4d;
     display: inline-block;
     animation: heartbeat 1.5s infinite;
-    font-size: 1.4rem;
-    margin: 0 5px;
+    font-size: 1.6rem;
+    margin: 0 8px;
     text-shadow: none;
+    filter: drop-shadow(0 2px 4px rgba(255,77,77,0.3));
 }
 
 .footer::before {
@@ -1109,9 +1140,9 @@ nav a.active::before {
     right: 0;
     height: 2px;
     background: linear-gradient(to right, 
-        transparent, 
-        rgba(255,255,255,0.8), 
-        transparent
+        transparent 0%,
+        rgba(255,255,255,0.8) 50%,
+        transparent 100%
     );
 }
 
@@ -1122,7 +1153,7 @@ nav a.active::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="rgba(255,255,255,0.03)" width="100" height="100"/></svg>');
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     opacity: 0.5;
     z-index: 1;
 }
@@ -1137,21 +1168,23 @@ nav a.active::before {
 
 @media (max-width: 768px) {
     .footer {
-        padding: 3rem 1rem;
+        padding: 4rem 1rem 3rem;
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
     }
     
     .footer-logo {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     
     .social-link {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
     }
     
     .footer-text {
         font-size: 1.1rem;
+        padding: 0.4rem 1.5rem;
     }
 }
 
