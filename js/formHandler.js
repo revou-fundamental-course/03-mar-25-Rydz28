@@ -75,7 +75,7 @@ const initWelcomePopup = () => {
             padding: '3em',
             backdrop: `
                 rgba(0,0,0,0.4)
-                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20z' fill='%23${Math.floor(Math.random()*16777215).toString(16)}' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20z' fill='%23${Math.floor(Math.random()*16777215).toString(16)}' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")
             `,
             customClass: {
                 popup: 'animated-popup',
@@ -127,25 +127,25 @@ const displayMessage = (data) => {
     const messageDisplay = document.querySelector('.message-display');
     messageDisplay.innerHTML = `
         <div class="message-info">
-            <p>Current time: <span id="current-time">${new Date().toLocaleString('id-ID')}</span></p>
+            <p>Current Time <span id="current-time">${new Date().toLocaleString('id-ID')}</span></p>
         </div>
         <div class="message-info">
-            <p>Nama: ${data.name}</p>
+            <p>Nama <span>${data.name}</span></p>
         </div>
         <div class="message-info">
-            <p>Email: ${data.email}</p>
+            <p>Email <span>${data.email}</span></p>
         </div>
         <div class="message-info">
-            <p>No. Telp: ${data.phone}</p>
+            <p>No. Telepon <span>${data.phone}</span></p>
         </div>
         <div class="message-info">
-            <p>Tanggal Lahir: ${formatDate(data.dob)}</p>
+            <p>Tanggal Lahir <span>${formatDate(data.dob)}</span></p>
         </div>
         <div class="message-info">
-            <p>Jenis Kelamin: ${data.gender}</p>
+            <p>Jenis Kelamin <span>${data.gender}</span></p>
         </div>
         <div class="message-info">
-            <p>Pesan: ${data.message}</p>
+            <p>Pesan <span>${data.message}</span></p>
         </div>
     `;
 };
