@@ -6,7 +6,7 @@ const initSlideshow = () => {
     const totalSlides = slides.length;
     let currentSlide = 0;
 
-    // Fungsi untuk mengganti slide dengan animasi
+    // Fungsi untuk mengganti slide
     const showSlide = (n) => {
         currentSlide = (n + totalSlides) % totalSlides;
         
@@ -26,7 +26,7 @@ const initSlideshow = () => {
             }
         });
 
-        // Update indikator
+        // indikator
         dots.forEach(dot => dot.classList.remove('active'));
         dots[currentSlide].classList.add('active');
     };
@@ -56,13 +56,40 @@ const initWelcomePopup = () => {
             confirmButton: 'welcome-button'
         }
     }).then((result) => {
-        let userName;
-        if (result.value) {
-            userName = result.value;
-        } else {
-            userName = 'Guest';
-        }
+        let userName = result.value || 'Guest';
         updateWelcomeText(userName);
+        
+        // Welcome Message
+        Swal.fire({
+            title: `<span class="welcome-highlight">Halo, ${userName}!</span>`,
+            html: `
+                <div class="welcome-content">
+                    <div class="welcome-icon">👋</div>
+                    <h2>Selamat Datang di Website Saya!</h2>
+                    <p>Senang bertemu dengan Anda</p>
+                </div>
+            `,
+            showConfirmButton: true,
+            confirmButtonText: 'Mulai Menjelajah',
+            width: 600,
+            padding: '3em',
+            backdrop: `
+                rgba(0,0,0,0.4)
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20z' fill='%23${Math.floor(Math.random()*16777215).toString(16)}' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")
+            `,
+            customClass: {
+                popup: 'animated-popup',
+                title: 'animated-title',
+                htmlContainer: 'animated-content',
+                confirmButton: 'animated-button'
+            },
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown animate__faster'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp animate__faster'
+            }
+        });
     });
 };
 
@@ -210,6 +237,25 @@ const initSmoothScroll = () => {
     });
 };
 
+const initMobileMenu = () => {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav .nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    });
+
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
+    });
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     initSlideshow();
@@ -217,8 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
     handleMessageForm();
     displayMessage(defaultData);
     initSmoothScroll();
+    initMobileMenu(); // Add this line
 });
-
 
 window.onload = () => {
     initWelcomePopup();
