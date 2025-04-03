@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleMessageForm();
     displayMessage(defaultData);
     initSmoothScroll();
-    initMobileMenu(); // Add this line
+    initMobileMenu();
 });
 
 window.onload = () => {
